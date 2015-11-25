@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   root 'static_pages#index'
   get 'admin' => 'static_pages#admin'
   resources :interns
-  resources :companies do
-    resources :employees
-  end
+  resources :companies
+  resources :employees
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -11,6 +11,15 @@ class CompaniesController < ApplicationController
     @url = results["attributionURL"]
   end
 
+  def new
+    @company = Company.new
+  end
+
+  def create
+    Company.create(company_params[:company])
+    redirect_to admin_path
+  end
+
   def destroy
     @company.destroy
     redirect_to admin_path
@@ -19,6 +28,10 @@ class CompaniesController < ApplicationController
   private
     def get_company
       @company = Company.find(params[:id])
+    end
+
+    def company_params
+      params.permit(company:[:id, :name, :street, :city, :state, :zip, :website, :logo])
     end
 
 end

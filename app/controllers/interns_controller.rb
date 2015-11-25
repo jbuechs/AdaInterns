@@ -8,6 +8,10 @@ class InternsController < ApplicationController
   def show
   end
 
+  def new
+    @intern = Intern.new
+  end
+
   def destroy
     @intern.destroy
     redirect_to admin_path

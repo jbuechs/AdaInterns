@@ -6,6 +6,10 @@ class EmployeesController < ApplicationController
     redirect_to admin_path
   end
 
+  def new
+    @employee = Employee.new
+  end
+
 
   private
     def get_employee

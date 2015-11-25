@@ -7,7 +7,7 @@
     <div class="col-lg-3 col-sm-4">
       <h2><%= "Intern".pluralize(@company.num_interns) %></h2>
         <% interns.each do |intern| %>
-          <p><%= link_to intern.full_name, intern_path(intern.id) %>, Cohort <%= intern.cohort %></p>
+          <p><%= link_to intern.full_name, intern_path(intern) %>, Cohort <%= intern.cohort %></p>
         <% end %>
         <% if @company.sponsor_four %>
           <p><%= @company.name %> will sponsor <%= @company.sponsor_four %> <%= "internship".pluralize(@company.sponsor_four) %> in Cohort 4</p>
@@ -21,7 +21,7 @@
       <div class="col-lg-3 col-sm-4">
         <h2><%= "Contact".pluralize(num_emp) %></h2>
         <% @company.employees.each do |employee| %>
-          <h4><%= link_to employee.full_name, company_employee_path(@company.id, employee.id) %></h4>
+          <h4><%= link_to employee.full_name, employee_path(employee) %></h4>
           <p><%= employee.position %></p>
         <% end %>
       </div>

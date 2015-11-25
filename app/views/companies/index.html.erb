@@ -1,0 +1,22 @@
+<% provide(:title, "Sponsoring Companies") %>
+
+<% count = 0 %>
+<% @companies.each do |company| %>
+  <% if count % 3 == 0 %>
+    <div class="row">
+  <% end %>
+    <div class="col-md-4 portfolio-item">
+        <a href="#">
+          <%= image_tag(company.logo, alt: "#{company.name} logo", class: "img-responsive") %>
+        </a>
+        <h3>
+            <a href="#"><%= company.name %></a>
+        </h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+    </div>
+  <% count += 1 %>
+  <% if count % 3 == 0 %>
+    </div>
+    <hr>
+  <% end %>
+<% end %>

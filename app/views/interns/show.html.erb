@@ -5,13 +5,25 @@
   </div>
   <div class="col-lg-9 col-sm-8">
     <h2>Bio</h2>
-    <h3>Contact</h3>
-    <% if @intern.has_twitter? %>
-      <%= link_to image_tag("twitter.png"), "https://www.twitter.com/#{@intern.twitter}" %>
-    <% end %>
-    <% if @intern.has_linkedin? %>
-      <%= link_to image_tag("linkedin.png"), @intern.linked_in %>
-    <% end %>
+    <div class="row">
+      <% if @intern.has_internship? %>
+        <div class="col-md-6">
+          <h3>Internship</h3>
+          <p><%= image_tag @intern.company.logo, class: "logo-thumb", alt: @intern.company.name %></p>
+        </div>
+      <% end %>
+      <% if @intern.has_contact? %>
+        <div class="col-md-6">
+          <h3>Contact</h3>
+          <% if @intern.has_twitter? %>
+            <%= link_to image_tag("twitter.png"), "https://www.twitter.com/#{@intern.twitter}" %>
+          <% end %>
+          <% if @intern.has_linkedin? %>
+            <%= link_to image_tag("linkedin.png"), @intern.linked_in %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
 </div>

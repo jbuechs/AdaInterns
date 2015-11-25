@@ -14,6 +14,10 @@ class Intern < ActiveRecord::Base
     return !self.image.blank?
   end
 
+  def has_contact?
+    return self.has_twitter? || self.has_linkedin?
+  end
+
   def has_twitter?
     return !self.twitter.blank?
   end

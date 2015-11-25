@@ -1,0 +1,43 @@
+<% provide(:title, @company.name) %>
+
+<% provide(:subtitle, @company.street) %>
+<div class="row">
+  <div class="col-lg-3 col-sm-4">
+    <h2>Location</h2>
+
+  </div>
+  <% interns = @company.interns %>
+  <div class="col-lg-3 col-sm-4">
+    <h2><%= "Intern".pluralize(@company.num_interns) %></h2>
+      <% interns.each do |intern| %>
+        <p><%= link_to intern.full_name, intern_path(intern.id) %>, Cohort <%= intern.cohort %></p>
+      <% end %>
+      <% if @company.sponsor_four %>
+        <p><%= @company.name %> will sponsor <%= @company.sponsor_four %> <%= "internship".pluralize(@company.sponsor_four) %> in Cohort 4</p>
+      <% end %>
+  </div>
+  <% num_emp = @company.employees.count %>
+  <% if num_emp != 0 %>
+    <div class="col-lg-3 col-sm-4">
+      <h2><%= "Contact".pluralize(num_emp) %></h2>
+      <% @company.employees.each do |employee| %>
+        <h4><%= link_to employee.full_name, company_employee_path(@company.id, employee.id) %></h4>
+        <p><%= employee.position %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+    <div class="col-lg-3 col-sm-4">
+      <h2>Glassdoor Stats</h2>
+      <% if @ratings %>
+        <p>Overall rating: <%= @ratings["overallRating"] %> <%= @ratings["ratingDescription"]%></p>
+        <p>Compensation and Benefits rating: <%= @ratings["compensationAndBenefitsRating"]%></p>
+        <p>Career Opportunities Rating: <%= @ratings["careerOpportunitiesRating"] %></p>
+        <p>Work Life Balance Rating: <%= @ratings["workLifeBalanceRating"] %></p>
+        <p><%= link_to "View on Glassdoor", @url %></p>
+      <% else %>
+        <p>There are no statistics available for this company on Glassdoor.</p>
+      <% end %>
+      <a href='https://www.glassdoor.com/index.htm'>powered by <img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
+    </div>
+</div>

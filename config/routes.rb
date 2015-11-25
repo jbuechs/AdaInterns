@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'static_pages#index'
+  get 'admin' => 'static_pages#admin'
   resources :interns
   resources :companies do
     resources :employees

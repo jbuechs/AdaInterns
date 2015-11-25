@@ -1,11 +1,16 @@
 class InternsController < ApplicationController
-  before_action :get_intern, only: [:show]
+  before_action :get_intern, only: [:show, :destroy]
 
   def index
     @interns = Intern.all.sort_by{ |intern| intern.last_name }
   end
 
   def show
+  end
+
+  def destroy
+    @intern.destroy
+    redirect_to admin_path
   end
 
   private

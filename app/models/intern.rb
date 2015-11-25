@@ -11,7 +11,15 @@ class Intern < ActiveRecord::Base
   end
 
   def has_image?
-    return !self.image.nil?
+    return !self.image.blank?
+  end
+
+  def has_twitter?
+    return !self.twitter.blank?
+  end
+
+  def has_linkedin?
+    return !self.linked_in.blank?
   end
 
   def get_image

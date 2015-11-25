@@ -1,25 +1,24 @@
 <% provide(:title, "Ada Interns") %>
 
-<!-- Team Members Row -->
-  <% count = 0 %>
-  <%= @interns.each do |intern| %>
-    <% if count % 4 == 0 %>
-    <div class="row">
-    <% end %>
-      <div class="col-lg-3 col-sm-4 text-center">
-        <%= image_tag intern.get_image, class: "img-circle img-responsive center-block img-thumb" %>
-        <h3><%= intern.full_name %></h3>
-        <h4>Cohort <%= intern.cohort %></h4>
-        <% if intern.has_internship? %>
-          <h4 class="light-gray"><%= intern.company.name %></h4>
-        <% end %>
-        <% count += 1 %>
-      </div>
-    <% if count % 4 == 0 %>
-    </div>
-    <hr>
-    <% end %>
+<% count = 0 %>
+<%= @interns.each do |intern| %>
+  <% if count % 4 == 0 %>
+  <div class="row">
   <% end %>
+    <div class="col-lg-3 col-sm-4 text-center">
+      <%= image_tag intern.get_image, class: "img-circle img-responsive center-block img-thumb" %>
+      <h3><%= link_to intern.full_name, intern_path(intern.id) %></h3>
+      <h4>Cohort <%= intern.cohort %></h4>
+      <% if intern.has_internship? %>
+        <h4 class="light-gray"><%= intern.company.name %></h4>
+      <% end %>
+      <% count += 1 %>
+    </div>
+  <% if count % 4 == 0 %>
+  </div>
+  <hr>
+  <% end %>
+<% end %>
 <% if count % 4 != 0 %>
 </div>
 <% end %>

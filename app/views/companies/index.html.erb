@@ -1,5 +1,5 @@
 <% provide(:title, "Sponsoring Companies") %>
-
+<%= link_to "View on a Map", "#" %>
 <% count = 0 %>
 <% @companies.each do |company| %>
   <% if count % 3 == 0 %>
@@ -10,9 +10,10 @@
           <%= image_tag(company.logo, alt: "#{company.name} logo", class: "img-responsive center-block") %>
         </a>
         <h3>
-            <a href="#"><%= company.name %></a>
+          <%= link_to company.name, company.website %>
         </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+        <h4><strong>Number of Interns: </strong><%= company.num_interns %></h4>
+        <h4><strong><%= "Cohort".pluralize(company.which_cohorts.length) %> Sponsored: </strong><%= company.which_cohorts.join(", ") %></h4>
     </div>
   <% count += 1 %>
   <% if count % 3 == 0 %>

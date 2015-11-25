@@ -1,1 +1,83 @@
-<% provide(:title, "Admin") %>
+<% provide(:title, "Admin Area") %>
+<% provide(:subtitle, "Proceed With Caution") %>
+
+<h2 id="top">Super cool things you can do as an admin:</h2>
+<ul>
+  <li><%= link_to "Create Companies", new_company_path %></li>
+  <li><%= link_to "Create Interns", new_intern_path %></li>
+  <li><%= link_to "Create Employees", "#" %></li>
+  <li><%= link_to "Edit or Delete Companies", "#companies" %></li>
+  <li><%= link_to "Edit or Delete Interns", "#interns" %></li>
+
+  <li><%= link_to "Edit or Delete Employees", "#employees" %></li>
+</ul>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h2 id="companies">Edit or Delete Companies</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <td>Company Name</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </thead>
+      <% @companies.each do |company| %>
+        <tr>
+          <td><%= company.name %></td>
+          <td><%= button_to "Edit", edit_company_path(company), method: :get %></td>
+          <td><%= button_to "Delete", company_path(company), method: :delete, data: { confirm: "Are you sure you want to delete #{company.name}?" } %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= link_to "Back to Top", "#top" %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h2 id="interns">Edit or Delete Interns</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <td>Intern Name</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </thead>
+      <% @interns.each do |intern| %>
+        <tr>
+          <td><%= intern.full_name %></td>
+          <td><%= button_to "Edit", edit_intern_path(intern), method: :get %></td>
+          <td><%= button_to "Delete", intern_path(intern), method: :delete, data: { confirm: "Are you sure you want to delete #{intern.full_name}?" } %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= link_to "Back to Top", "#top" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h2 id="employees">Edit or Delete Employees</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <td>Employee Name</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </thead>
+      <% @employees.each do |employee| %>
+        <tr>
+          <td><%= employee.full_name %></td>
+          <td><%= button_to "Edit", edit_employee_path(employee), method: :get %></td>
+          <td><%= button_to "Delete", employee_path(employee), method: :delete, data: { confirm: "Are you sure you want to delete #{employee.full_name}?" } %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= link_to "Back to Top", "#top" %>
+  </div>
+</div>

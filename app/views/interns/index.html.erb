@@ -1,7 +1,7 @@
 <% provide(:title, "Ada Interns") %>
 
 <% count = 0 %>
-<%= @interns.each do |intern| %>
+<% @interns.each do |intern| %>
   <% if count % 4 == 0 %>
   <div class="row">
   <% end %>

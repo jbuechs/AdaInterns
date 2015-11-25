@@ -1,4 +1,6 @@
 <% provide(:title, @intern.full_name) %>
+<% provide(:subtitle, "Cohort #{@intern.cohort}") %>
+
 <div class="row">
   <div class="col-lg-3 col-sm-4">
     <%= image_tag @intern.get_image, class: "img-responsive center-block" %>

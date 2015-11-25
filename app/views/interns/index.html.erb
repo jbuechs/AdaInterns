@@ -1,0 +1,25 @@
+<% provide(:title, "Ada Interns") %>
+
+<!-- Team Members Row -->
+
+  <% count = 0 %>
+  <%= @interns.each do |intern| %>
+    <% if count % 4 == 0 %>
+    <div class="row">
+    <% end %>
+      <div class="col-lg-3 col-sm-4 text-center">
+        <img class="img-circle img-responsive center-block" src="http://placehold.it/200x200" alt="">
+        <h3><%= intern.full_name %></h3>
+        <h4>Cohort <%= intern.cohort %></h4>
+        <% if !intern.company.blank? %>
+          <h4 class="light-gray"><%= intern.company.name %></h3>
+        <% end %>
+        <% count += 1 %>
+      </div>
+    <% if count % 4 == 0 %>
+    </div>
+    <hr>
+    <% end %>
+  <% end %>
+</div>
+<hr>

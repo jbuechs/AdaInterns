@@ -5,8 +5,8 @@
   <% if count % 3 == 0 %>
     <div class="row">
   <% end %>
-    <div class="col-md-4 portfolio-item">
-        <a href= <%= company.website %>>
+    <div class="col-sm-4 portfolio-item">
+        <a href= <%= company.website %> >
           <%= image_tag(company.logo, alt: "#{company.name} logo", class: "img-responsive center-block") %>
         </a>
         <h3>

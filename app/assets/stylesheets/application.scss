@@ -22,6 +22,8 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+$light-gray: #666;
+
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
@@ -35,4 +37,8 @@ body {
 
 footer {
     margin: 50px 0;
+}
+
+.light-gray {
+  color: $light-gray;
 }

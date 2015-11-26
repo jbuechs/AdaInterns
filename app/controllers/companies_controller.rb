@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :get_company, only: [:show, :destroy]
+  before_action :get_company, only: [:show, :destroy, :edit, :update]
 
   def index
     @companies = Company.all.sort_by { |company| company.name }
@@ -13,6 +13,14 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
+  end
+
+  def edit
+  end
+
+  def update
+    @company.update(company_params[:company])
+    redirect_to admin_path
   end
 
   def create

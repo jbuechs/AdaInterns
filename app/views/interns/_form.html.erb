@@ -1,0 +1,24 @@
+<%= form_for @intern, :html => {:class => "form-group"} do |f| %>
+  <fieldset>
+    <legend><%= legend_text %></legend>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, class: 'form-control', :required => true %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, class: 'form-control', :required => true %>
+    <%= f.label :cohort %>
+    <%= f.number_field :cohort, class: 'form-control', :required => true %>
+    <%= f.label :twitter %>
+    <%= f.text_field :twitter, class: 'form-control' %>
+    <%= f.label :linked_in %>
+    <%= f.text_field :linked_in, class: 'form-control' %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <br>
+    <%= f.collection_select(:company_id, Company.all, :id, :name, {prompt: "Internship company:"}, {class: 'form-control' }) %>
+    <br>
+    <%= f.label :bio %>
+    <%= f.text_field :bio, class: 'form-control' %>
+    <br>
+    <%= f.submit value: "#{button_text}", class: "btn btn-primary"%>
+  </fieldset>
+<% end %>

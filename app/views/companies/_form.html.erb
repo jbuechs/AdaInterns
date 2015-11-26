@@ -1,6 +1,5 @@
 <%= form_for @company, :html => {:class => "form-group"} do |f| %>
   <fieldset>
-    <legend><%= legend_text %></legend>
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control', :required => true %>
     <%= f.label :street %>

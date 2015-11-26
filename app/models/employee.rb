@@ -1,6 +1,8 @@
 class Employee < ActiveRecord::Base
   belongs_to :company
   validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :position, presence: true
   validates :company_id, presence: true
 
   def full_name
@@ -20,7 +22,7 @@ class Employee < ActiveRecord::Base
   end
 
   def has_linkedin?
-    return !self.linked_in.blank?
+    return !self.linkedin.blank?
   end
 
   def has_email?

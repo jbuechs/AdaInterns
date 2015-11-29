@@ -2,16 +2,18 @@ class CompaniesController < ApplicationController
   before_action :get_company, only: [:show, :destroy, :edit, :update]
 
   def index
-    # @companies = Company.all
     @filterrific = initialize_filterrific(
     Company,
-    params[:filterrific]
+    params[:filterrific],
+      :select_options => {
+        sorted_by: Company.options_for_sorted_by,
+      }
     ) or return
-    @companies = @filterrific.find.page(params[:page])
+    @companies = Company.all
     respond_to do |format|
       format.html
       format.js
-  end
+    end
   end
 
   def show

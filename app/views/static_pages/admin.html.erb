@@ -35,7 +35,6 @@
   </div>
 </div>
 
-
 <div class="row" id="interns">
   <div class="col-md-6 col-md-offset-3">
     <h2>Edit or Delete Interns</h2>
@@ -83,9 +82,12 @@
 </div>
 
 <script>
-  $("#menu a").click(function(){
+  var scrollFunction = function(){
     var menuId = $(this).attr("href");
     $("body").animate({scrollTop: $(menuId).offset().top - 50}, "slow");
     return false;
-  });
+  }
+  $("#menu a").click(scrollFunction);
+  $("#top a").click(scrollFunction);
+
 </script>

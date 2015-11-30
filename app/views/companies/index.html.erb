@@ -19,14 +19,6 @@
     ) %>
   </div>
   <div>
-    Name
-    <%= f.select(
-      :name,
-      @filterrific.select_options[:name],
-      { include_blank: '- Any -' }
-    ) %>
-  </div>
-  <div>
     Sorted by
     <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
   </div>

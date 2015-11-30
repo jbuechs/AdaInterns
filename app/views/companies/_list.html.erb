@@ -1,0 +1,23 @@
+<div id="filterrific_results">
+  <% count = 0 %>
+  <% companies.each do |company| %>
+    <% if count % 3 == 0 %>
+      <div class="row">
+    <% end %>
+      <div class="col-sm-4 portfolio-item">
+          <a href= <%= company.website %> >
+            <%= image_tag(company.logo, alt: "#{company.name} logo", class: "img-responsive center-block") %>
+          </a>
+          <h3>
+            <%= link_to company.name, company_path(company.id) %>
+          </h3>
+          <h4><strong>Number of Interns: </strong><%= company.num_interns %></h4>
+          <h4><strong><%= "Cohort".pluralize(company.which_cohorts.length) %> Sponsored: </strong><%= company.which_cohorts.join(", ") %></h4>
+      </div>
+    <% count += 1 %>
+    <% if count % 3 == 0 %>
+      </div>
+      <hr>
+    <% end %>
+  <% end %>
+</div>

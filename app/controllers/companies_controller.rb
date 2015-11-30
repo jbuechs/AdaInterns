@@ -44,6 +44,9 @@ class CompaniesController < ApplicationController
     redirect_to admin_path
   end
 
+  def company_map
+  end
+
   private
     def get_company
       @company = Company.find(params[:id])

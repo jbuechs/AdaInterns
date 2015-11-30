@@ -85,7 +85,7 @@
 <script>
   $("#menu a").click(function(){
     var menuId = $(this).attr("href");
-    $("body").animate({scrollTop: $(menuId).offset().top}, "slow");
+    $("body").animate({scrollTop: $(menuId).offset().top - 50}, "slow");
     return false;
   });
 </script>

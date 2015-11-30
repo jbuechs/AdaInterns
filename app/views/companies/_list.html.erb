@@ -6,7 +6,7 @@
     <% end %>
       <div class="col-sm-4 portfolio-item">
           <a href= <%= company.website %> >
-            <%= image_tag(company.logo, alt: "#{company.name} logo", class: "img-responsive center-block") %>
+            <%= image_tag("logo/#{company.logo}", alt: "#{company.name} logo", class: "img-responsive center-block") %>
           </a>
           <h3>
             <%= link_to company.name, company_path(company.id) %>

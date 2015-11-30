@@ -33,7 +33,7 @@ class Company < ActiveRecord::Base
       terms.map {
         or_clauses = [
           "LOWER(companies.name) LIKE ?",
-          "LOWER(companies.email) LIKE ?"
+          "LOWER(companies.website) LIKE ?"
         ].join(' OR ')
         "(#{ or_clauses })"
       }.join(' AND '),

@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
         sorted_by: Company.options_for_sorted_by,
       }
     ) or return
-    @companies = Company.all
+    @companies = @filterrific.find
     respond_to do |format|
       format.html
       format.js

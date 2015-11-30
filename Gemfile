@@ -32,4 +32,6 @@ group :development do
   gem "binding_of_caller"
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  # Create ERD for project
+  gem 'rails-erd'
 end

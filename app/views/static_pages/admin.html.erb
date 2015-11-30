@@ -1,19 +1,20 @@
 <% provide(:title, "Admin Area") %>
 <% provide(:subtitle, "Proceed With Caution") %>
+<div id="top">
+  <h2>Super cool things you can do as an admin:</h2>
+  <ul id="menu">
+    <li><%= link_to "Create Companies", new_company_path %></li>
+    <li><%= link_to "Create Interns", new_intern_path %></li>
+    <li><%= link_to "Create Employees", new_employee_path %></li>
+    <li><%= link_to "Edit or Delete Companies", "#companies" %></li>
+    <li><%= link_to "Edit or Delete Interns", "#interns" %></li>
+    <li><%= link_to "Edit or Delete Employees", "#employees" %></li>
+  </ul>
+</div>
 
-<h2 id="top">Super cool things you can do as an admin:</h2>
-<ul>
-  <li><%= link_to "Create Companies", new_company_path %></li>
-  <li><%= link_to "Create Interns", new_intern_path %></li>
-  <li><%= link_to "Create Employees", new_employee_path %></li>
-  <li><%= link_to "Edit or Delete Companies", "#companies" %></li>
-  <li><%= link_to "Edit or Delete Interns", "#interns" %></li>
-  <li><%= link_to "Edit or Delete Employees", "#employees" %></li>
-</ul>
-
-<div class="row">
+<div class="row" id="companies">
   <div class="col-md-6 col-md-offset-3">
-    <h2 id="companies">Edit or Delete Companies</h2>
+    <h2>Edit or Delete Companies</h2>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -35,9 +36,9 @@
 </div>
 
 
-<div class="row">
+<div class="row" id="interns">
   <div class="col-md-6 col-md-offset-3">
-    <h2 id="interns">Edit or Delete Interns</h2>
+    <h2>Edit or Delete Interns</h2>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -58,9 +59,9 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row" id="employees">
   <div class="col-md-6 col-md-offset-3">
-    <h2 id="employees">Edit or Delete Employees</h2>
+    <h2>Edit or Delete Employees</h2>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -80,3 +81,11 @@
     <%= link_to "Back to Top", "#top" %>
   </div>
 </div>
+
+<script>
+  $("#menu a").click(function(){
+    var menuId = $(this).attr("href");
+    $("body").animate({scrollTop: $(menuId).offset().top}, "slow");
+    return false;
+  });
+</script>

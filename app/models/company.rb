@@ -47,6 +47,7 @@ class Company < ActiveRecord::Base
     case sort_option.to_s
     when /^name_/
       order("LOWER(companies.name) #{ direction }")
+    when /^num_interns_/
     else
       raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
     end
@@ -56,7 +57,9 @@ class Company < ActiveRecord::Base
 
   def self.options_for_sorted_by
       [
-        ['Name (a-z)', 'name_asc']
+        ['Name (a-z)', 'name_asc'],
+        ['Name (z-a)', 'name_desc'],
+        ['# of Interns (descending)', 'num_interns_desc'],
       ]
   end
 

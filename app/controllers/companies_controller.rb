@@ -10,6 +10,9 @@ class CompaniesController < ApplicationController
       }
     ) or return
     @companies = @filterrific.find
+    if @filterrific.sorted_by == "num_interns_desc"
+      @companies = @companies.sort_by{ |company| company.num_interns }.reverse
+    end
     respond_to do |format|
       format.html
       format.js

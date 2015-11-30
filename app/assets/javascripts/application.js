@@ -15,4 +15,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require filterrific/filterrific-jquery
+//= require underscore
+//= require gmaps/google
 //= require_tree .

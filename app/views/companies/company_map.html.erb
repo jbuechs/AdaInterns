@@ -4,18 +4,10 @@
 
 <div class="row">
   <div class="col-md-9" id="sidebar_builder" style='height: 400px;'>
-
   </div>
   <div class="col-md-3" id='sidebar_container'>
-
   </div>
 </div>
-
-<!-- <div style='width: 800px;'>
-  <div id="sidebar_builder" style='width: 800px; height: 400px;'></div>
-</div>
-<div id='sidebar_container'>
-</div> -->
 
 <script type="text/javascript">
 function createSidebarLi(json){
@@ -41,13 +33,13 @@ _.each(json_array, function(json){
 
 handler = Gmaps.build('Google');
 handler.buildMap({ internal: {id: 'sidebar_builder'}}, function(){
-var json_array = [
-  { lat: 40, lng: -80, name: 'Foo', infowindow: "I'm Foo" },
-  { lat: 45, lng: -90, name: 'Bar', infowindow: "I'm Bar" },
-  { lat: 50, lng: -85, name: 'Baz', infowindow: "I'm Baz" }
-];
+// var json_array = [
+//   { lat: 40, lng: -80, name: 'Foo', infowindow: "I'm Foo" },
+//   { lat: 45, lng: -90, name: 'Bar', infowindow: "I'm Bar" },
+//   { lat: 50, lng: -85, name: 'Baz', infowindow: "I'm Baz" }
+// ];
 
-var markers = handler.addMarkers(json_array);
+var markers = handler.addMarkers(<%=raw @hash.to_json %>);
 
 _.each(json_array, function(json, index){
   json.marker = markers[index];

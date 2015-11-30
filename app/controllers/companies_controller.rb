@@ -45,6 +45,13 @@ class CompaniesController < ApplicationController
   end
 
   def company_map
+    @companies = Company.all
+    @hash = Gmaps4rails.build_markers(@companies) do |company, marker|
+      marker.lat company.latitude
+      marker.lng company.longitude
+      # marker.name company.name
+      # marker.infowindow "I'm a company"
+    end
   end
 
   private

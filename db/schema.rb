@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125193726) do
+ActiveRecord::Schema.define(version: 20151202233142) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20151125193726) do
     t.datetime "updated_at", null: false
     t.string   "image"
     t.string   "bio"
+    t.string   "email"
   end
 
   add_index "interns", ["company_id"], name: "index_interns_on_company_id"

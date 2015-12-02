@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202233142) do
+ActiveRecord::Schema.define(version: 20151202234145) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -51,11 +51,12 @@ ActiveRecord::Schema.define(version: 20151202233142) do
     t.string   "twitter"
     t.string   "linked_in"
     t.integer  "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "image"
     t.string   "bio"
     t.string   "email"
+    t.string   "current_company"
   end
 
   add_index "interns", ["company_id"], name: "index_interns_on_company_id"

@@ -11,6 +11,7 @@ class Intern < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
+  validates :password, presence: true, length: { minimum: 8 }
 
   IMAGES = ["ada1.jpg", "ada2.png", "barbie.jpg", "grace1.jpg", "grace2.jpg" ]
 

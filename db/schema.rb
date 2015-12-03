@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203050120) do
+ActiveRecord::Schema.define(version: 20151203221142) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20151203050120) do
     t.string   "email"
     t.string   "current_company"
     t.string   "password_digest"
+    t.string   "remember_digest"
   end
 
   add_index "interns", ["company_id"], name: "index_interns_on_company_id"

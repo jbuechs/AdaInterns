@@ -1,8 +1,16 @@
 class Intern < ActiveRecord::Base
   belongs_to :company
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+
+  before_save { self.email = email.downcase }
+
+  validates :first_name, presence: true, length: { maximum: 30 }
+  validates :last_name, presence: true, length: { maximum: 30 }
   validates :cohort, presence: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true,
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
+  has_secure_password
 
   IMAGES = ["ada1.jpg", "ada2.png", "barbie.jpg", "grace1.jpg", "grace2.jpg" ]
 

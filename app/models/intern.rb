@@ -17,11 +17,11 @@ class Intern < ActiveRecord::Base
 
   # Not sure if I need this for security:
   # # Returns the hash digest of the given string.
-  # def Intern.digest(string)
-  #   cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-  #                                                 BCrypt::Engine.cost
-  #   BCrypt::Password.create(string, cost: cost)
-  # end
+  def Intern.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 
   # Returns a random token.
   def Intern.new_token

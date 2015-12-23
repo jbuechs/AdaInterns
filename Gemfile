@@ -41,4 +41,5 @@ group :development do
   gem 'sqlite3'
   # Create ERD for project
   gem 'rails-erd'
+  gem 'bullet'
 end

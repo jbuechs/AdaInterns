@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :interns
   get 'sessions/new'
 
   root 'static_pages#index'

@@ -45,3 +45,6 @@ Temporary Items
 
 # Erd diagram
 erd.pdf
+
+# Coverage report
+/coverage/*

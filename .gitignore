@@ -4,6 +4,11 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+
+# Ignore test-related files
+/coverage.data
+/coverage/
+
 # Ignore bundler config.
 /.bundle
 
@@ -45,6 +50,3 @@ Temporary Items
 
 # Erd diagram
 erd.pdf
-
-# Coverage report
-/coverage/*

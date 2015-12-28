@@ -15,11 +15,16 @@ gem 'gmaps4rails'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'simplecov', :require => false, :group => :test
+
 
 group :production do
   gem 'pg'
   gem 'puma'
+end
+
+group :test do
+  gem 'simplecov', :require => false
+  gem 'shoulda-matchers', '~> 3.0'
 end
 
 group :development, :test do

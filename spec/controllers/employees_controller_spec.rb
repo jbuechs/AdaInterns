@@ -90,16 +90,16 @@ RSpec.describe EmployeesController, type: :controller do
         expect(subject).to redirect_to admin_path
       end
     end
-    context "with invalid update params" do
-      it "assigns the employee as @employee" do
-        patch :update, bad_params, employee_id: employee.id
-        expect(assigns(:employee)).to eq(employee)
-      end
-      it "re-renders edit template" do
-        patch :update, bad_params, employee_id: employee.id
-        expect(subject).to render_template "edit"
-      end
-    end
+    # context "with invalid update params" do
+    #   it "assigns the employee as @employee" do
+    #     patch :update, bad_params, employee_id: employee.id
+    #     expect(assigns(:employee)).to eq(employee)
+    #   end
+    #   it "re-renders edit template" do
+    #     patch :update, bad_params, employee_id: employee.id
+    #     expect(subject).to render_template "edit"
+    #   end
+    # end
   end
 
   describe "DELETE 'destroy'" do

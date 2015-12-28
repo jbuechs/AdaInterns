@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.4'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -15,11 +14,10 @@ gem 'gmaps4rails'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-
-
 group :production do
   gem 'pg'
   gem 'puma'
+  gem 'rails_12factor'
 end
 
 group :test do

@@ -1,11 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :get_employee, only: [:destroy, :edit, :update]
 
-  def destroy
-    @employee.destroy
-    redirect_to admin_path
-  end
-
   def new
     @employee = Employee.new
   end
@@ -23,6 +18,10 @@ class EmployeesController < ApplicationController
     redirect_to admin_path
   end
 
+  def destroy
+    @employee.destroy
+    redirect_to admin_path
+  end
 
   private
     def get_employee

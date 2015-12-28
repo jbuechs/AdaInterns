@@ -1,8 +1,8 @@
 require 'open-uri'
 
 class Company < ActiveRecord::Base
-  has_many :interns, dependent: :destroy
-  has_many :employees
+  has_many :interns
+  has_many :employees, dependent: :destroy
   validates :name, presence: true
 
 

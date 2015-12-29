@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203233451) do
+ActiveRecord::Schema.define(version: 20151229043139) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -51,18 +51,26 @@ ActiveRecord::Schema.define(version: 20151203233451) do
     t.string   "twitter"
     t.string   "linked_in"
     t.integer  "company_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "image"
     t.string   "bio"
-    t.string   "email"
     t.string   "current_company"
-    t.string   "password_digest"
-    t.string   "remember_digest"
-    t.boolean  "change",          default: true
+    t.boolean  "change",                 default: true
+    t.string   "email",                  default: "",   null: false
+    t.string   "encrypted_password",     default: "",   null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,    null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
 
   add_index "interns", ["company_id"], name: "index_interns_on_company_id"
   add_index "interns", ["email"], name: "index_interns_on_email", unique: true
+  add_index "interns", ["reset_password_token"], name: "index_interns_on_reset_password_token", unique: true
 
 end

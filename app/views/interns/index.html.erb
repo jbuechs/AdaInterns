@@ -7,7 +7,7 @@
   <% end %>
     <div class="col-lg-3 col-sm-4 text-center">
       <%= image_tag "profile_pic/#{intern.get_image}", class: "img-circle img-responsive center-block img-thumb" %>
-      <h3><%= link_to intern.full_name, intern_path(intern.id) %></h3>
+      <h3><%= link_to intern.name, intern_path(intern.id) %></h3>
       <h4>Cohort <%= intern.cohort %></h4>
       <% if intern.has_internship? %>
         <h4 class="light-gray"><%= intern.company.name %></h4>

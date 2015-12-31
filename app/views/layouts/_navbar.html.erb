@@ -22,6 +22,7 @@
         </li>
         <% if intern_signed_in? %>
               <li><%= link_to "Profile", intern_path(current_intern) %></li>
+              <li><%= link_to "Edit Your Profile", edit_intern_path(current_intern) %></li>
               <li><%= link_to "Change your password", edit_intern_registration_path %></li>
               <li><%= link_to "Log out", destroy_intern_session_path, method: :delete %></li>
             <% else %>

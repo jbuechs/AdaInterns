@@ -48,9 +48,9 @@
       </thead>
       <% @interns.each do |intern| %>
         <tr>
-          <td><%= intern.full_name %></td>
+          <td><%= intern.name %></td>
           <td><%= button_to "Edit", edit_intern_path(intern), method: :get %></td>
-          <td><%= button_to "Delete", intern_path(intern), method: :delete, data: { confirm: "Are you sure you want to delete #{intern.full_name}?" } %></td>
+          <td><%= button_to "Delete", intern_path(intern), method: :delete, data: { confirm: "Are you sure you want to delete #{intern.name}?" } %></td>
         </tr>
       <% end %>
     </table>
@@ -71,9 +71,9 @@
       </thead>
       <% @employees.each do |employee| %>
         <tr>
-          <td><%= employee.full_name %></td>
+          <td><%= employee.name %></td>
           <td><%= button_to "Edit", edit_employee_path(employee), method: :get %></td>
-          <td><%= button_to "Delete", employee_path(employee), method: :delete, data: { confirm: "Are you sure you want to delete #{employee.full_name}?" } %></td>
+          <td><%= button_to "Delete", employee_path(employee), method: :delete, data: { confirm: "Are you sure you want to delete #{employee.name}?" } %></td>
         </tr>
       <% end %>
     </table>

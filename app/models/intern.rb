@@ -47,10 +47,6 @@ class Intern < ActiveRecord::Base
   #   return false if remember_digest.nil?
   #   BCrypt::Password.new(remember_digest).is_password?(remember_token)
   # end
-  #
-  # def full_name
-  #   return first_name + " " + last_name
-  # end
 
   def has_image?
     return !self.image.blank?

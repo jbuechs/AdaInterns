@@ -1,5 +1,6 @@
 class InternsController < ApplicationController
   before_action :get_intern, only: [:show, :destroy, :edit, :update]
+  before_action :authenticate_intern!, except: [:index, :show]
 
   def index
     @interns = Intern.all.sort_by{ |intern| intern.last_name }

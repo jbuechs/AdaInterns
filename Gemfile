@@ -11,8 +11,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'filterrific'
 gem 'gmaps4rails'
-# Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+# # Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+gem 'devise'
 
 group :production do
   gem 'pg'

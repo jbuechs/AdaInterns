@@ -1,4 +1,8 @@
 class Intern < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable,
+         :recoverable, :rememberable, :trackable, :validatable, :registerable
   attr_accessor :remember_token
 
   belongs_to :company
@@ -10,8 +14,8 @@ class Intern < ActiveRecord::Base
   validates :email, presence: true,
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  has_secure_password
-  validates :password, presence: true, length: { minimum: 8 }
+  # has_secure_password
+  # validates :password, presence: true, length: { minimum: 8 }
 
   IMAGES = ["ada1.jpg", "ada2.png", "barbie.jpg", "grace1.jpg", "grace2.jpg" ]
 
